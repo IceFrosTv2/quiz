@@ -1,0 +1,53 @@
+.choice {
+  padding-top: 180px;
+  padding-bottom: 227px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__content {
+    max-width: 583px;
+  }
+
+  &__description {
+    margin-top: 40px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &__options {
+    margin-top: 60px;
+    width: 588px;
+  }
+
+  &__option {
+    border: 1px solid #C1BBBB;
+    background: #FFF;
+    font-size: 18px;
+    line-height: 23px;
+    padding: 26px 70px 26px 40px;
+    position: relative;
+    transition: 0.2s ease all;
+
+    &:hover {
+      border-left: 5px solid #6933DC;
+      cursor: pointer;
+      color: #6933DC;
+      font-family: "Museo Sans Cyrl Bold", sans-serif;
+    }
+
+    &-arrow {
+      position: absolute;
+      right: 40px;
+      top: 27px;
+      display: none;
+    }
+
+    &:hover &-arrow {
+      display: block;
+    }
+  }
+}

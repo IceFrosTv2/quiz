@@ -1,0 +1,85 @@
+.form {
+  padding-top: 140px;
+  padding-bottom: 123px;
+
+  .container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__content {
+    max-width: 504px;
+  }
+
+  &__details {
+    margin-top: 60px;
+    max-width: 485px;
+  }
+
+  &__agree {
+    margin-top: 15px;
+    font-size: 12px;
+    line-height: 14px;
+
+    & input {
+      top: 2px;
+      position: relative;
+    }
+  }
+
+  &__agree, &__label {
+    cursor: pointer;
+  }
+
+  &__button {
+    margin-top: 60px;
+  }
+
+  &__group {
+    border: 1px solid #C1BBBB;
+    background: #FFF;
+    padding: 12px 23px 13px;
+    width: 485px;
+    height: 74px;
+    position: relative;
+    transition: .2s ease all;
+
+    &:focus-within {
+      border-left: 5px solid #6933DC;
+    }
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font-family: "Museo Sans Cyrl Bold", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+
+    &:focus ~ .form__label,
+    &:not(:focus):valid ~ .form__label {
+      top: 12px;
+    }
+
+    &:valid,
+    &:focus {
+      margin-top: 27px;
+      height: auto;
+    }
+  }
+
+  &__label {
+    color: #333;
+    font-size: 18px;
+    line-height: 22px;
+    position: absolute;
+    left: 23px;
+    top: 26px;
+    transition: .2s ease;
+    cursor: auto;
+  }
+}

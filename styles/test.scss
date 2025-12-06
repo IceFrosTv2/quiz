@@ -1,0 +1,152 @@
+.test {
+  padding-top: 20px;
+  padding-bottom: 50px;
+
+  &__pre-title {
+    color: #DCDCF3;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  &__progress-bar {
+    margin-top: 60px;
+    margin-bottom: 80px;
+    display: flex;
+    column-gap: 130px;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+      position: relative;
+
+      &:not(:last-child):before {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        width: 184px;
+        background-color: #DCDCF3;
+        height: 6px;
+        left: 28px;
+        top: 10px;
+      }
+
+      &-circle {
+        width: 26px;
+        height: 26px;
+        background-color: #DCDCF3;
+        border-radius: 50%;
+      }
+
+      &-text {
+        font-size: 13px;
+        line-height: 16px;
+      }
+
+      &.complete, &.active {
+        & .test__progress-bar-item-circle {
+          background-color: #6933DC;
+        }
+      }
+
+      &.complete {
+        &:not(:last-child):before {
+          background-color: #6933DC;
+        }
+      }
+
+      &.active {
+        &::after {
+          content: '';
+          border-radius: 50%;
+          position: absolute;
+          z-index: 1;
+          width: 14px;
+          height: 14px;
+          background-color: #DCDCF3;
+          top: 6px;
+        }
+      }
+    }
+  }
+
+  &__question {
+    &-title {
+      font-family: "Museo Sans Cyrl Bold", sans-serif;
+      font-size: 36px;
+      line-height: 43px;
+
+      & span {
+        color: #6933DC;
+      }
+    }
+
+    &-options {
+      margin-top: 58px;
+      min-height: 344px;
+    }
+
+    &-option {
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 13px;
+      align-items: center;
+
+      & label {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__time {
+    display: flex;
+    align-items: center;
+
+    &-text {
+      font-size: 17px;
+      line-height: 20px;
+      color: #6933DC;
+      margin-right: 15px;
+    }
+
+    &-clock {
+      background-image: url('../images/time.svg');
+      background-size: cover;
+      background-position: center;
+      width: 27px;
+      height: 29px;
+      font-size: 10px;
+      text-align: center;
+      line-height: 28px;
+    }
+  }
+
+  &__pass-question {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+
+    & a {
+      font-size: 17px;
+      line-height: 20px;
+      color: #6933DC;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

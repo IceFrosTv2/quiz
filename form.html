@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="dist/common.css">
+    <link rel="stylesheet" href="dist/form.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <img
+                    src="images/logo.svg"
+                    alt="Logo"
+                    width="227"
+                    height="38"
+                    loading="eager"
+            />
+        </div>
+    </div>
+</header>
+
+<section class="form">
+    <div class="container">
+        <div class="form__content">
+            <h1 class="form__title common-title">Введите свои <span>данные</span></h1>
+            <div class="form__details">
+                <div class="form__group">
+                    <input
+                            type="text"
+                            class="form__input"
+                            id="name"
+                            name="name"
+                            required
+                    />
+                    <label for="name" class="form__label">Имя</label>
+                </div>
+                <div class="form__group">
+                    <input
+                            type="text"
+                            class="form__input"
+                            id="last-name"
+                            name="lastname"
+                            required
+                    />
+                    <label for="last-name" class="form__label">Фамилия</label>
+                </div>
+                <div class="form__group">
+                    <input
+                            type="text"
+                            class="form__input"
+                            id="email"
+                            name="email"
+                            required
+                    />
+                    <label for="email" class="form__label">Электронная почта</label>
+                </div>
+                <div class="form__agree">
+                    <input type="checkbox" id="agree" name="agree" required/>
+                    <label for="agree">
+                        Я ознакомлен <a href="#">с правилами сайта</a>
+                    </label>
+                </div>
+            </div>
+            <div class="form__button">
+                <button id="process" class="button" disabled>
+                    Перейти к выбору теста
+                </button>
+            </div>
+        </div>
+        <div class="form__image">
+            <img
+                    class=""
+                    src="images/info-image.svg"
+                    alt="Person"
+                    width="523px"
+                    height="547px"
+                    loading="lazy"
+            />
+        </div>
+    </div>
+</section>
+
+<footer class="footer">«АйтилогияQuiz» © Все права защищены / 2022</footer>
+
+<script src="scripts/form.js"></script>
+</body>
+</html>

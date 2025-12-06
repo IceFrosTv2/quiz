@@ -1,0 +1,119 @@
+.check {
+  margin-block: 20px;
+
+  & .container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  &__pre-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+
+    &-text {
+      color: #DCDCF3;
+    }
+
+    & svg path {
+      stroke: #DCDCF3;
+    }
+
+    &-name {
+      color: #6933DC;
+    }
+  }
+
+  &__title {
+    color: #333;
+    font-family: "Museo Sans Cyrl Bold", sans-serif;
+    font-size: 54px;
+
+    & span {
+      color: #6933DC;
+    }
+  }
+
+  &__questions {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  &__question {
+    &-title {
+      font-family: "Museo Sans Cyrl Bold", sans-serif;
+      font-size: 36px;
+      margin-bottom: 40px;
+
+      & span {
+        color: #6933DC;
+      }
+    }
+
+    &-options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 20px;
+    }
+
+    &-option {
+      display: flex;
+      gap: 13px;
+      align-items: center;
+      cursor: default;
+
+      & input {
+        cursor: auto;
+      }
+
+      &.correct {
+        color: #5FDC33;
+
+        & input {
+          border: 7px solid #5FDC33;
+
+          &::before {
+            box-shadow: inset 10px 10px #FFFFFF;
+          }
+        }
+      }
+
+      &.incorrect {
+        color: #DC3333;
+
+        & input {
+          border: 7px solid #DC3333;
+
+          &::before {
+            box-shadow: inset 10px 10px #FFFFFF;
+          }
+        }
+      }
+    }
+
+    &-skipped {
+      color: #DC3333;
+      font-family: "Museo Sans Cyrl Bold",sans-serif;
+      font-size: 25px;
+    }
+  }
+
+  &__return-to-result {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 13px;
+
+    &:hover {
+      color: #512cab;
+
+      & svg path {
+        stroke: #512cab;
+      }
+    }
+  }
+}
