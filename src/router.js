@@ -12,7 +12,7 @@ export class Router {
                 route: '#/',
                 title: 'Главная',
                 template: 'templates/index.html',
-                styles: '/styles/index.css',
+                styles: 'styles/index.css',
                 load: () => {
                 }
             },
@@ -20,7 +20,7 @@ export class Router {
                 route: '#/form',
                 title: 'Регистрация',
                 template: 'templates/form.html',
-                styles: '/styles/form.css',
+                styles: 'styles/form.css',
                 load: () => {
                     new Form();
                 }
@@ -29,7 +29,7 @@ export class Router {
                 route: '#/choice',
                 title: 'Выбор теста',
                 template: 'templates/choice.html',
-                styles: '/styles/choice.css',
+                styles: 'styles/choice.css',
                 load: () => {
                     new Choice();
                 }
@@ -38,7 +38,7 @@ export class Router {
                 route: '#/test',
                 title: 'Прохождение теста',
                 template: 'templates/test.html',
-                styles: '/styles/test.css',
+                styles: 'styles/test.css',
                 load: () => {
                     new Test();
                 }
@@ -47,7 +47,7 @@ export class Router {
                 route: '#/result',
                 title: 'Результаты',
                 template: 'templates/result.html',
-                styles: '/styles/result.css',
+                styles: 'styles/result.css',
                 load: () => {
                     new Result();
                 }
@@ -56,7 +56,7 @@ export class Router {
                 route: '#/check-results',
                 title: 'Проверить результаты',
                 template: 'templates/check-results.html',
-                styles: '/styles/check-results.css',
+                styles: 'styles/check-results.css',
                 load: () => {
                     new CheckResults();
                 }
