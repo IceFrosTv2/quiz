@@ -9,11 +9,9 @@ const __dirname = path.dirname(__filename);
 
 export default {
     entry: './src/app.js',
-    mode: 'development',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
     },
     devServer: {
         static: './dist',
