@@ -28,6 +28,31 @@ a, input {
 .header {
   padding: 42px 0 40px;
   border-bottom: 1px solid #DCDCF3;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .profile {
+      display: flex;
+      align-items: center;
+
+      &__image {
+        margin-right: 5px;
+      }
+
+      &__user {
+        font-size: 18px;
+        line-height: 18px;
+      }
+
+      &__logout {
+        font-size: 12px;
+        line-height: 12px;
+      }
+    }
+  }
 }
 
 .container {

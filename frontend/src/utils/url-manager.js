@@ -5,9 +5,9 @@ export class UrlManager {
 
         let params = {},
             tokens,
-            re = /[?&]([^=]+)=([^&]*)/g;
+            regex = /[?&]([^=]+)=([^&]*)/g;
 
-        while (tokens = re.exec(qs)) {
+        while (tokens = regex.exec(qs)) {
             params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
         }
 

@@ -1,4 +1,7 @@
 import { UrlManager } from "../utils/url-manager.js";
+import { CustomHttp } from "../services/custom-http.js";
+import config from "../../config/config.js";
+import { Auth } from "../services/auth.js";
 
 export class Test {
 
@@ -15,25 +18,23 @@ export class Test {
         this.userResult = [];
         // Вызов списка вопросов
         this.routeParams = UrlManager.getQueryParams();
-        UrlManager.checkUserData(this.routeParams);
+        this.init();
+    }
 
-
+    async init () {
         if ( this.routeParams.id ) {
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', `https://testologia.ru/get-quiz?id=${this.routeParams.id}`, false);
-            xhr.send();
-            if ( xhr.status === 200 && xhr.responseText ) {
-                try {
-                    this.quiz = JSON.parse(xhr.responseText);
-                } catch (e) {
-                    location.href = '#/';
+            try {
+                const result = await CustomHttp.request(config.host + '/tests/' + this.routeParams.id);
+                if ( result ) {
+                    if ( result.error ) {
+                        throw new Error(result.error);
+                    }
+                    this.quiz = result;
+                    this.startQuiz();
                 }
-                this.startQuiz();
-            } else {
-                location.href = '#/';
+            } catch (error) {
+                console.log(error)
             }
-        } else {
-            location.href = '#/';
         }
     }
 
@@ -56,11 +57,11 @@ export class Test {
 
         const timerElement = document.getElementById('timer');
         let seconds = 59;
-        const interval = setInterval(function () {
+        this.interval = setInterval(function () {
             seconds--;
             timerElement.innerText = seconds;
             if ( seconds === 0 ) {
-                clearInterval(interval);
+                clearInterval(this.interval);
                 this.complete();
             }
         }.bind(this), 1000)
@@ -180,6 +181,7 @@ export class Test {
         }
 
         if ( this.currentQuestionIndex > this.quiz.questions.length ) {
+            clearInterval(this.interval);
             this.complete();
             return;
         }
@@ -200,31 +202,27 @@ export class Test {
     }
 
     // Отправка ответов на сервер и получение результатов с переходом на следующую страницу
-    complete () {
-
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', `https://testologia.ru/pass-quiz?id=${this.routeParams.id}`, false);
-        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-        xhr.send(JSON.stringify({
-            name: this.routeParams.name,
-            lastName: this.routeParams.lastName,
-            email: this.routeParams.email,
-            results: this.userResult,
-        }));
-
-        if ( xhr.status === 200 && xhr.responseText ) {
-            let result = null;
-            try {
-                result = JSON.parse(xhr.responseText);
-            } catch (e) {
-                location.href = '#/';
-            }
-            if ( result ) {
-                location.href = `#/result?id=${this.routeParams.id}&score=${result.score}&total=${result.total}`;
-            }
-        } else {
-            location.href = '#/';
+    async complete () {
+        const userInfo = Auth.getUserInfo();
+        if ( !userInfo ) {
+            location.href = '#/login'
         }
-        localStorage.setItem('userResult', JSON.stringify(this.userResult))
+
+        try {
+            const result = await CustomHttp.request(config.host + '/tests/' + this.routeParams.id + '/pass', 'POST', {
+                userId: userInfo.userId,
+                results: this.userResult,
+            })
+
+            if ( result ) {
+                if ( result.error ) {
+                    throw new Error(result.error)
+                }
+                location.href = `#/result?id=${this.routeParams.id}`;
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 }

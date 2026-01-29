@@ -30,9 +30,19 @@
     color: #333;
     font-family: "Museo Sans Cyrl Bold", sans-serif;
     font-size: 54px;
+    margin-bottom: 10px;
 
     & span {
       color: #6933DC;
+    }
+  }
+
+  &__testSubjectData {
+    font-size: 20px;
+
+    #nameAndEmail {
+      color: #6933DC;
+      font-family: "Museo Sans Cyrl Bold", sans-serif;
     }
   }
 

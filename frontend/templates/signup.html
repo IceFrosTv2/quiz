@@ -2,7 +2,7 @@
 <section class="form">
     <div class="container">
         <div class="form__content">
-            <h1 class="form__title common-title">Введите свои <span>данные</span></h1>
+            <h1 class="form__title common-title">Регистрация</h1>
             <div class="form__details">
                 <div class="form__group">
                     <input
@@ -34,6 +34,16 @@
                     />
                     <label for="email" class="form__label">Электронная почта</label>
                 </div>
+                <div class="form__group">
+                    <input
+                            type="password"
+                            class="form__input"
+                            id="password"
+                            name="password"
+                            required
+                    />
+                    <label for="password" class="form__label">Пароль</label>
+                </div>
                 <div class="form__agree">
                     <input type="checkbox" id="agree" name="agree" required/>
                     <label for="agree">
@@ -46,6 +56,7 @@
                     Перейти к выбору теста
                 </button>
             </div>
+            <div class="form__link">Уже зарегистрированы? <a href="/#/login">Войти</a></div>
         </div>
         <div class="form__image">
             <img

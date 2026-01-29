@@ -6,8 +6,7 @@
   "scripts": {
     "build:css": "sass styles/:dist/styles --style=compressed",
     "build:js": "webpack",
-    "build:nojekyll": "echo. > dist/.nojekyll 2>nul || echo > dist/.nojekyll",
-    "build": "npm run build:css && npm run build:js && npm run build:nojekyll",
+    "build": "npm run build:css && npm run build:js",
     "dev": "webpack serve --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
